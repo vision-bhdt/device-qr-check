@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Redirect</title>
+    <script>
+        function redirectToApp() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // Check for iOS devices
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = "https://apps.apple.com/us/app/bhdt-tam-nhin/id6444214805";
+            }
+            // Check for Android devices
+            else if (/android/i.test(userAgent)) {
+                window.location.href = "https://play.google.com/store/apps/details?id=com.vision.insurance.vn&hl=pt";
+            }
+            // Fallback for unsupported devices
+            else {
+                alert("This app is only available for Android and iOS devices.");
+            }
+        }
+
+        // Redirect when the page loads
+        window.onload = redirectToApp;
+    </script>
+</head>
+
+<body>
+    <h1>Redirecting to the app...</h1>
+    <p>If you are not redirected automatically, <a href="https://apps.apple.com/us/app/bhdt-tam-nhin/id6444214805">click
+            here for iOS</a> or <a
+            href="https://play.google.com/store/apps/details?id=com.vision.insurance.vn&hl=pt">click here for
+            Android</a>.</p>
+</body>
+
+</html>
